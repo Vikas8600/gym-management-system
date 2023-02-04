@@ -2,8 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:locker_no",
- "creation": "2023-02-03 17:18:04.900742",
- "default_view": "List",
+ "creation": "2023-02-02 14:50:50.207931",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -14,13 +13,15 @@
   {
    "fieldname": "locker_no",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Locker No",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-03 17:18:14.084030",
+ "modified": "2023-02-03 17:07:17.536387",
  "modified_by": "Administrator",
  "module": "Gym Management System",
  "name": "Gym Locker",
@@ -35,11 +36,16 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Gym Admin",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Gym Member"
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

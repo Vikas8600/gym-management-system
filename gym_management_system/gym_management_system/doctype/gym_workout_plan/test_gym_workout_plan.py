@@ -1,4 +1,4 @@
-# Copyright (c) 2023, Hybrowlabs Technologies and Contributors
+# Copyright (c) 2023, Milan Pethani and Contributors
 # See license.txt
 
 # import frappe

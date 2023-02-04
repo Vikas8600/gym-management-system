@@ -1,9 +1,7 @@
 {
  "actions": [],
- "allow_rename": 1,
  "autoname": "field:trainer_name",
- "creation": "2023-02-03 16:46:39.981227",
- "default_view": "List",
+ "creation": "2023-02-02 12:47:05.259125",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -11,14 +9,16 @@
   "trainer_name",
   "email_id",
   "column_break_3",
-  "mobile_number",
-  "gender"
+  "employee",
+  "enabled"
  ],
  "fields": [
   {
    "fieldname": "trainer_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Trainer Name",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -28,25 +28,35 @@
    "options": "Email"
   },
   {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Enabled"
+  },
+  {
    "fieldname": "column_break_3",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "mobile_number",
-   "fieldtype": "Data",
-   "label": "Mobile Number",
-   "options": "Phone"
-  },
-  {
-   "fieldname": "gender",
+   "fieldname": "employee",
    "fieldtype": "Link",
-   "label": "Gender",
-   "options": "Gender"
+   "label": "Employee",
+   "options": "Employee"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2023-02-03 16:58:44.630833",
+ "links": [
+  {
+   "link_doctype": "Gym Subscription",
+   "link_fieldname": "gym_trainer"
+  },
+  {
+   "link_doctype": "Gym Trainer Rating",
+   "link_fieldname": "gym_trainer"
+  }
+ ],
+ "modified": "2023-02-03 17:01:26.861542",
  "modified_by": "Administrator",
  "module": "Gym Management System",
  "name": "Gym Trainer",

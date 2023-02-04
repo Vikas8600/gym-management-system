@@ -1,26 +1,27 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:gym_class_type",
- "creation": "2023-02-03 17:01:19.694303",
- "default_view": "List",
+ "autoname": "field:class_type",
+ "creation": "2023-02-02 14:44:55.655956",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "gym_class_type"
+  "class_type"
  ],
  "fields": [
   {
-   "fieldname": "gym_class_type",
+   "fieldname": "class_type",
    "fieldtype": "Data",
-   "label": "Gym Class Type",
+   "in_list_view": 1,
+   "label": "Class Type",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-03 17:04:44.354800",
+ "modified": "2023-02-03 17:08:10.304347",
  "modified_by": "Administrator",
  "module": "Gym Management System",
  "name": "Gym Class Type",
@@ -35,11 +36,16 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Gym Admin",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Gym Member"
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

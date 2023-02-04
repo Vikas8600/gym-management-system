@@ -1,33 +1,47 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{gym_member}--{gym_locker_no}",
- "creation": "2023-02-03 17:19:40.517019",
- "default_view": "List",
+ "autoname": "format:GYM-LKR-{gym_locker}-{#####}",
+ "creation": "2023-02-02 14:52:01.131789",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "gym_locker",
   "gym_member",
-  "gym_locker_no"
+  "enabled"
  ],
  "fields": [
   {
-   "fieldname": "gym_member",
+   "fieldname": "gym_locker",
    "fieldtype": "Link",
-   "label": "Gym Member",
-   "options": "Gym Member"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gym Locker",
+   "options": "Gym Locker",
+   "reqd": 1
   },
   {
-   "fieldname": "gym_locker_no",
+   "fieldname": "gym_member",
    "fieldtype": "Link",
-   "label": "Gym Locker No",
-   "options": "Gym Locker"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gym Member",
+   "options": "Gym Member",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Enabled"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-03 17:20:10.928534",
+ "modified": "2023-02-03 17:33:50.117841",
  "modified_by": "Administrator",
  "module": "Gym Management System",
  "name": "Gym Locker Booking",
@@ -42,12 +56,17 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Gym Admin",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Gym Member"
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

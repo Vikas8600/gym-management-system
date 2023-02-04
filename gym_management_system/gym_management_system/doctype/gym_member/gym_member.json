@@ -1,27 +1,26 @@
 {
  "actions": [],
- "autoname": "field:gym_member_name",
- "creation": "2023-02-03 16:41:08.940257",
- "default_view": "List",
+ "autoname": "field:member_name",
+ "creation": "2023-02-02 12:43:20.554764",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "gym_member_name",
+  "member_name",
   "date_of_birth",
-  "gender",
-  "weight",
-  "column_break_4",
-  "mobile_number",
+  "customer",
+  "enabled",
+  "html_4",
+  "mobile_no",
   "email_id",
-  "height",
-  "blood_group"
+  "gender"
  ],
  "fields": [
   {
-   "fieldname": "gym_member_name",
+   "fieldname": "member_name",
    "fieldtype": "Data",
-   "label": "Gym Member Name",
+   "label": "Member Name",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -30,46 +29,73 @@
    "label": "Date of Birth"
   },
   {
-   "fieldname": "gender",
-   "fieldtype": "Link",
-   "label": "Gender",
-   "options": "Gender"
-  },
-  {
-   "fieldname": "column_break_4",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "mobile_number",
+   "fieldname": "mobile_no",
    "fieldtype": "Data",
-   "label": "Mobile Number",
+   "label": "Mobile No",
    "options": "Phone"
   },
   {
    "fieldname": "email_id",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Email Id",
-   "options": "Email"
+   "options": "Email",
+   "reqd": 1
   },
   {
-   "fieldname": "weight",
-   "fieldtype": "Data",
-   "label": "Weight"
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
   },
   {
-   "fieldname": "blood_group",
-   "fieldtype": "Data",
-   "label": "Blood Group"
+   "fieldname": "html_4",
+   "fieldtype": "Column Break"
   },
   {
-   "fieldname": "height",
-   "fieldtype": "Data",
-   "label": "Height"
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "options": "Gender",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2023-02-03 17:23:00.335197",
+ "links": [
+  {
+   "link_doctype": "Gym Membership",
+   "link_fieldname": "gym_member"
+  },
+  {
+   "link_doctype": "Gym Subscription",
+   "link_fieldname": "gym_member"
+  },
+  {
+   "link_doctype": "Gym Locker Booking",
+   "link_fieldname": "gym_member"
+  },
+  {
+   "link_doctype": "Gym Class Booking",
+   "link_fieldname": "gym_member"
+  },
+  {
+   "link_doctype": "Gym Assign Workout Plan",
+   "link_fieldname": "gym_member"
+  },
+  {
+   "link_doctype": "Gym Member Fitness Journey",
+   "link_fieldname": "gym_member"
+  }
+ ],
+ "modified": "2023-02-03 17:00:06.124073",
  "modified_by": "Administrator",
  "module": "Gym Management System",
  "name": "Gym Member",

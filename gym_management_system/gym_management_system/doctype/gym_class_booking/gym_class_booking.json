@@ -1,33 +1,57 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{gym_member}-{gym_class_type}-{MM}-{YY}",
- "creation": "2023-02-03 17:02:33.707292",
- "default_view": "List",
+ "autoname": "format:GYM-CLS-{class_type}-{#####}",
+ "creation": "2023-02-02 14:48:14.439811",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "class_type",
   "gym_member",
-  "gym_class_type"
+  "date",
+  "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "gym_member",
+   "fieldname": "class_type",
    "fieldtype": "Link",
-   "label": "Gym Member",
-   "options": "Gym Member"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Class Type",
+   "options": "Gym Class Type",
+   "reqd": 1
   },
   {
-   "fieldname": "gym_class_type",
+   "fieldname": "gym_member",
    "fieldtype": "Link",
-   "label": "Gym Class Type",
-   "options": "Gym Class Type"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gym Member",
+   "options": "Gym Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gym Class Booking",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2023-02-03 17:04:27.885601",
+ "modified": "2023-02-03 17:15:53.421910",
  "modified_by": "Administrator",
  "module": "Gym Management System",
  "name": "Gym Class Booking",
@@ -35,6 +59,8 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -42,12 +68,29 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Gym Admin",
    "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Gym Member",
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

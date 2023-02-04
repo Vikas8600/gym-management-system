@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-02 14:36:17.444828",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "default_membership_item",
+  "default_subscription_item",
+  "default_customer_group",
+  "default_territory",
+  "default_no_of_days_for_due_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "default_customer_group",
+   "fieldtype": "Link",
+   "label": "Default Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "default_membership_item",
+   "fieldtype": "Link",
+   "label": "Default Membership Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "default_subscription_item",
+   "fieldtype": "Link",
+   "label": "Default Subscription Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "default_territory",
+   "fieldtype": "Link",
+   "label": "Default Territory",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "default_no_of_days_for_due_date",
+   "fieldtype": "Int",
+   "label": "Default No. of Days For Due Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-02-03 17:12:03.059370",
+ "modified_by": "Administrator",
+ "module": "Gym Management System",
+ "name": "Gym Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Gym Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

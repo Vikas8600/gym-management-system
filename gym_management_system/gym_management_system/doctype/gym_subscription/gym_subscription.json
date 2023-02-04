@@ -1,70 +1,106 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "format:{gym_member}--{gym_trainer}",
- "creation": "2023-02-03 17:16:04.682587",
- "default_view": "List",
+ "autoname": "format:GYM-SUB-{subscription_type}-{#####}",
+ "creation": "2023-02-02 12:55:20.398209",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "subscription_type",
   "gym_member",
   "gym_trainer",
-  "gym_subscription_type",
-  "state_date",
-  "column_break_5",
-  "end_date",
+  "sales_invoice",
+  "column_break_4",
+  "subscription_start_date",
+  "subscription_end_date",
   "amount",
-  "sales_invoice"
+  "enabled",
+  "amended_from"
  ],
  "fields": [
   {
    "fieldname": "gym_member",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Gym Member",
-   "options": "Gym Member"
+   "options": "Gym Member",
+   "reqd": 1
   },
   {
    "fieldname": "gym_trainer",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Gym Trainer",
-   "options": "Gym Trainer"
+   "options": "Gym Trainer",
+   "reqd": 1
   },
   {
-   "fieldname": "gym_subscription_type",
+   "fieldname": "subscription_type",
    "fieldtype": "Link",
-   "label": "Gym Subscription Type",
-   "options": "Gym Subscription Type"
+   "in_standard_filter": 1,
+   "label": "Subscription Type",
+   "options": "Gym Subscription Type",
+   "reqd": 1
   },
   {
-   "fieldname": "state_date",
+   "columns": 1,
+   "fieldname": "subscription_start_date",
    "fieldtype": "Date",
-   "label": "State Date"
+   "in_list_view": 1,
+   "label": "Subscription Start Date",
+   "reqd": 1
   },
   {
-   "fieldname": "column_break_5",
+   "columns": 1,
+   "fieldname": "subscription_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Subscription End Date",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "column_break_4",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "end_date",
-   "fieldtype": "Date",
-   "label": "End Date"
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gym Subscription",
+   "print_hide": 1,
+   "read_only": 1
   },
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
-   "label": "Amount"
+   "label": "Amount",
+   "options": "currency",
+   "reqd": 1
   },
   {
    "fieldname": "sales_invoice",
    "fieldtype": "Link",
    "label": "Sales Invoice",
-   "options": "Sales Invoice"
+   "no_copy": 1,
+   "options": "Sales Invoice",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2023-02-03 17:16:39.221572",
+ "modified": "2023-02-03 17:14:06.140239",
  "modified_by": "Administrator",
  "module": "Gym Management System",
  "name": "Gym Subscription",
@@ -72,6 +108,7 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -79,12 +116,22 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Gym Admin",
    "share": 1,
+   "submit": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Gym Trainer"
+  },
+  {
+   "read": 1,
+   "role": "Gym Member"
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

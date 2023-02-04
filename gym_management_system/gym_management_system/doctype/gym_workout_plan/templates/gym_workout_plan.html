@@ -1,0 +1,43 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<h1>{{ title }}</h1>
+<div class="row">
+  <div class="col-md-3">
+    <img src="{{image}}">
+  </div>
+  <div class="col-md-9">
+    <table width="100%" border="1">
+      <tr>
+        <th width="33%">
+          Workout Exercise
+        </th>
+        <th width="33%">
+          Counts/ Duration
+        </th>
+        <th width="33%">
+          Week Day
+        </th>
+      </tr>
+      {% for row in workout_plan_exercise %}
+      <tr>
+        <td>
+          {{ row.workout_exercise }}
+        </td>
+        <td>
+          {{ row.counts_duration }}
+        </td>
+        <td>
+          {{ row.week_day }}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    
+    
+   
+  </div>
+</div>
+
+{% endblock %}
+<!-- this is a sample default web page template -->
