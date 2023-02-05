@@ -19,4 +19,4 @@ class TestGymClassType(FrappeTestCase):
         frappe.delete_doc("Gym Class Type", self.gym_type)
     
     def test_gym_class_type(self):
-        self.assertEqual(self.gym_type, "Cycling1")
+        self.assertEqual(self.gym_type, "Cycling")
