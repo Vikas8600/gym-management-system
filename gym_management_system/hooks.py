@@ -7,6 +7,15 @@ app_description = "Gym Management System"
 app_email = "vikas.moin@hybrowlabs.com"
 app_license = "MIT"
 
+
+scheduler_events = {
+	"cron": {
+		"0 22 * * SUN": [
+			"gym_management.utils.send_weekly_summary_mails"
+		]
+	},
+}
+
 # Includes in <head>
 # ------------------
 
