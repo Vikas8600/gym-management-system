@@ -1,0 +1,65 @@
+<div class="dashboard-list-item">
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: 8px;">
+        <!-- <h4 data-type="name" data-name="{{ gym_member }}">Member: <b>{{ gym_member }}</b></h4> -->
+      </div>
+    </div>
+    
+</br>
+    {% if active_sub %}
+    <h4><b>Active Subscription Details</b></h4>
+    <table width="100%" border= 1>
+      <tr>
+        <td width="15%" align="center"><p><b>Member</b></p></td>
+        <td width="15%" align="center"><p><b>Trainer</b></p></td>
+        <td width="10%" align="center"><p><b>Subscription Type</b></p></td>
+        <td width="10%" align="center"><p><b>Remaining Days</b></p></td>
+        <td width="10%" align="center"><p><b>End Date</b></p></td>
+        <td width="15%" align="center"><p><b>Email Id</b></p></td>
+        <td width="10%" align="center"><p><b>Mobile No</b></p></td>
+        <td width="10%" align="center"><p><b>Gender</b></p></td>
+      </tr>
+        {% for row in active_sub %}
+            <tr>
+                <td width="15%" align="center"><b>{{ row.gym_member }}</b></td>
+                <td width="15%" align="center">{{ row.gym_trainer }}</td>
+                <td width="10%" align="center">{{ row.subscription_type }}</td>
+                <td width="10%" align="center">{{ row.remaining_days }}</td>
+                <td width="10%" align="center">{{ row.subscription_end_date }}</td>
+                <td width="15%" align="center">{{ row.email_id }}</td>
+                <td width="10%" align="center">{{ row.mobile_no }}</td>
+                <td width="10%" align="center">{{ row.gender }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+</br></br>
+    {% if expired_sub %}
+    <h4><b>Expired Subscription Details</b></h4>
+    <table width="100%" border= 1>
+      <tr>
+        <td width="15%" align="center"><p><b>Member</b></p></td>
+        <td width="15%" align="center"><p><b>Trainer</b></p></td>
+        <td width="10%" align="center"><p><b>Subscription Type</b></p></td>
+        <td width="10%" align="center"><p><b>Remaining Days</b></p></td>
+        <td width="10%" align="center"><p><b>End Date</b></p></td>
+        <td width="15%" align="center"><p><b>Email Id</b></p></td>
+        <td width="10%" align="center"><p><b>Mobile No</b></p></td>
+        <td width="10%" align="center"><p><b>Gender</b></p></td>
+      </tr>
+        {% for row in expired_sub %}
+            <tr>
+                <td width="15%" align="center"><b>{{ row.gym_member }}</b></td>
+                <td width="15%" align="center">{{ row.gym_trainer }}</td>
+                <td width="10%" align="center">{{ row.subscription_type }}</td>
+                <td width="10%" align="center">{{ row.remaining_days }}</td>
+                <td width="10%" align="center">{{ row.subscription_end_date }}</td>
+                <td width="15%" align="center">{{ row.email_id }}</td>
+                <td width="10%" align="center">{{ row.mobile_no }}</td>
+                <td width="10%" align="center">{{ row.gender }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
