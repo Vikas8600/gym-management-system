@@ -8,13 +8,13 @@ from frappe.model.document import Document
 
 class GymMemberFitnessJourney(Document):
 	def on_submit(self):
-		exists_fitness = frappe.db.exists(self.doctype, {'date': self.date, 'gym_member': self.gym_member, 
-							'docstatus':1, 'name':("!=", self.name)})
+		exists_fitness = frappe.db.get_value(self.doctype, {'date': self.date, 'gym_member': self.gym_member, 
+							'docstatus':1, 'name':("!=", self.name)},'name')
 		
 		if exists_fitness:
 			frappe.throw(_("{} {} already is assigned to member {} for {}").format(
 				self.doctype,
-				frappe.bold(get_link_to_form(self.doctype, exists_fitness)), 
-				frappe.bold(get_link_to_form("Gym Member",self.gym_member)), 
-				frappe.bold(format_date(self.date))
+				get_link_to_form(self.doctype, exists_fitness), 
+				get_link_to_form("Gym Member",self.gym_member), 
+				format_date(self.date)
 			))

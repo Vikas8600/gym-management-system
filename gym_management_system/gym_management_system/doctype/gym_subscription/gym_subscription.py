@@ -47,8 +47,8 @@ class GymSubscription(Document):
 
 		if exists_subscription:
 			frappe.throw(_("Subscription {} already exists for member {} between {} and {}".format(
-				frappe.bold(get_link_to_form(self.doctype, exists_subscription[0][0])),
-				frappe.bold(get_link_to_form("Gym Member",self.gym_member)),
-				frappe.bold(format_date(self.subscription_start_date)),
-				frappe.bold(format_date(self.subscription_end_date)),
+				get_link_to_form(self.doctype, exists_subscription[0][0]),
+				get_link_to_form("Gym Member",self.gym_member),
+				format_date(self.subscription_start_date),
+				format_date(self.subscription_end_date),
 			)))

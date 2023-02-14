@@ -14,18 +14,22 @@ class GymMember(Document):
 	def create_customer(self):
 		if self.customer:
 			return
+		
+		gym_settings = frappe.get_single("Gym Settings")
+		customer_group = gym_settings.default_customer_group
+		territory = gym_settings.default_territory
+
+		if not customer_group:
+			frappe.throw(_("Please Define Default Customer Group in {}".format(get_link_to_form("Gym Settings","Gym Settings"))))
+
+		if not territory:
+			frappe.throw(_("Please Define Default Territory in {}".format(get_link_to_form("Gym Settings","Gym Settings"))))
 
 		customer_doc = frappe.new_doc("Customer")
 		customer_doc.customer_name = self.member_name
 		customer_doc.customer_type = "Individual"
 		customer_doc.gender = self.gender
-		customer_doc.customer_group = frappe.db.get_singles_value("Gym Settings", "default_customer_group")
-		if not customer_doc.customer_group:
-			frappe.throw(_("Please Define Default Customer Group in {}".format(frappe.bold(get_link_to_form("Gym Settings","Gym Settings")))))
-
-		customer_doc.territory = frappe.db.get_singles_value("Gym Settings", "default_territory")
-		if not customer_doc.territory:
-			frappe.throw(_("Please Define Default Territory in {}".format(frappe.bold(get_link_to_form("Gym Settings","Gym Settings")))))
-
+		customer_doc.customer_group = customer_group
+		customer_doc.territory = territory
 		customer_doc.save(ignore_permissions= True)
 		self.customer = customer_doc.name		
