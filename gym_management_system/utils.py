@@ -6,27 +6,30 @@ from frappe.core.doctype.communication.email import _make as make_communication
 from six import iteritems
 
 def create_sales_invoice(self):
-    si_doc = frappe.new_doc("Sales Invoice")
-    si_doc.customer = frappe.get_value("Gym Member", self.gym_member, "customer")
-    si_doc.posting_date = today()
-    default_no_of_days_for_due_date = frappe.get_value("Gym Settings", 'default_no_of_days_for_due_date', 'value')
-    si_doc.due_date = add_days(si_doc.posting_date, default_no_of_days_for_due_date)
+    try:
+        si_doc = frappe.new_doc("Sales Invoice")
+        si_doc.customer = frappe.get_value("Gym Member", self.gym_member, "customer")
+        si_doc.posting_date = today()
+        default_no_of_days_for_due_date = frappe.get_value("Gym Settings", 'default_no_of_days_for_due_date', 'value')
+        si_doc.due_date = add_days(si_doc.posting_date, default_no_of_days_for_due_date)
 
-    default_item_key = "default_membership_item" if self.doctype == "Gym Membership" else "default_subscription_item"
-    default_item = frappe.get_value("Gym Settings", default_item_key, 'value')
+        default_item_key = "default_membership_item" if self.doctype == "Gym Membership" else "default_subscription_item"
+        default_item = frappe.get_value("Gym Settings", default_item_key, 'value')
 
-    if not default_item:
-        frappe.throw(_("Please Define {} Item in {}".format(unscrub(default_item_key), frappe.bold(get_link_to_form("Gym Settings","Gym Settings")))))
-    
-    si_doc.append('items', {
-        'item_code': default_item,
-        'qty': 1,
-        'rate': self.amount
-    })
+        if not default_item:
+            frappe.throw(_("Please Define {} Item in {}".format(unscrub(default_item_key), frappe.bold(get_link_to_form("Gym Settings","Gym Settings")))))
+        
+        si_doc.append('items', {
+            'item_code': default_item,
+            'qty': 1,
+            'rate': self.amount
+        })
 
-    si_doc.save(ignore_permissions=True)
-    si_doc.submit()
-    self.db_set('sales_invoice', si_doc.name)
+        si_doc.save(ignore_permissions=True)
+        si_doc.submit()
+        self.db_set('sales_invoice', si_doc.name)
+    except Exception as e:
+        frappe.logger("gym").exception(e)
 
 def send_weekly_summary_mails():
 
