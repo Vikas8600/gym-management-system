@@ -10,8 +10,8 @@ app_license = "MIT"
 
 scheduler_events = {
 	"cron": {
-		"0 22 * * SUN": [
-			"gym_management.utils.send_weekly_summary_mails"
+		"0 18 * * SUN": [
+			"gym_management_system.utils.send_weekly_summary_mails"
 		]
 	},
 }
